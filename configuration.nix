@@ -98,6 +98,11 @@ home-manager.users.balisong = { pkgs, ... }: {
       enable = true;
       userName = "b4lisong";
       userEmail = "b4lisong@pm.me";
+      aliases = {
+          ci = "commit";
+	  co = "checkout";
+	  s = "status";
+      };
       extraConfig = {
           credential.helper = "${
               pkgs.git.override { withLibsecret = true; }
