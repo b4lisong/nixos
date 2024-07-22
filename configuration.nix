@@ -104,9 +104,9 @@ home-manager.users.balisong = { pkgs, ... }: {
 	  s = "status";
       };
       extraConfig = {
-          credential.helper = "${
-              pkgs.git.override { withLibsecret = true; }
-          }/bin/git-credential-libsecret";
+          # credential.helper = "${
+          #     pkgs.git.override { withLibsecret = true; }
+          # }/bin/git-credential-libsecret";
 	  push = { autoSetupRemote = true; }; 
       };
   };
