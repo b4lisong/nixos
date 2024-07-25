@@ -75,6 +75,7 @@ users.users.balisong = {
     # Home Manager Config + Enable
     home-manager.useUserPackages = true;
     home-manager.useGlobalPkgs = true;
+    home-manager.backupFileExtension = "backup";
 
     # Home Manager User Config
     home-manager.users.balisong = { pkgs, ... }: {
@@ -100,6 +101,7 @@ users.users.balisong = {
             };
 
         };
+
         programs.git = {
             enable = true;
             userName = "b4lisong";
@@ -114,6 +116,18 @@ users.users.balisong = {
                 #     pkgs.git.override { withLibsecret = true; }
                 # }/bin/git-credential-libsecret";
 	        push = { autoSetupRemote = true; }; 
+            };
+        };
+
+        xsession.windowManager.i3 = {
+            enable = true;
+            package = pkgs.i3-gaps;
+            config = {
+                modifier = "Mod4";
+                gaps = {
+                  inner = 10;
+                  outer = 5;
+                };
             };
         };
     };
