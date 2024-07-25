@@ -72,51 +72,51 @@ users.users.balisong = {
     extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
 };
 
-  # Home Manager Config
-home-manager.useUserPackages = true;
-home-manager.useGlobalPkgs = true;
+    # Home Manager Config + Enable
+    home-manager.useUserPackages = true;
+    home-manager.useGlobalPkgs = true;
 
-  # Home Manager User Config
-home-manager.users.balisong = { pkgs, ... }: {
-    home.packages = [ ];
-    home.stateVersion = "24.05";
+    # Home Manager User Config
+    home-manager.users.balisong = { pkgs, ... }: {
+        home.packages = [ ];
+        home.stateVersion = "24.05";
 
 
-    programs.zsh = {
-        enable = true;
-        enableCompletion = true;
-        autosuggestion.enable = true;
-        syntaxHighlighting.enable = true;
+        programs.zsh = {
+            enable = true;
+            enableCompletion = true;
+            autosuggestion.enable = true;
+            syntaxHighlighting.enable = true;
 
-        shellAliases = {
-	  ls = "ls --color=auto";
-          ll = "ls -alh";
-          update = "sudo nixos-rebuild switch";
-	  nixconfig = "sudo nvim /etc/nixos/configuration.nix";
+            shellAliases = {
+	      ls = "ls --color=auto";
+              ll = "ls -alh";
+              update = "sudo nixos-rebuild switch";
+	      nixconfig = "sudo nvim /etc/nixos/configuration.nix";
+            };
+            history = {
+              size = 10000;
+              # path = "${config.xdg.dataHome}/zsh/history";
+            };
+
         };
-        history = {
-          size = 10000;
-          # path = "${config.xdg.dataHome}/zsh/history";
+        programs.git = {
+            enable = true;
+            userName = "b4lisong";
+            userEmail = "b4lisong@pm.me";
+            aliases = {
+                ci = "commit";
+	        co = "checkout";
+	        s = "status";
+            };
+            extraConfig = {
+                # credential.helper = "${
+                #     pkgs.git.override { withLibsecret = true; }
+                # }/bin/git-credential-libsecret";
+	        push = { autoSetupRemote = true; }; 
+            };
         };
-
     };
-  programs.git = {
-      enable = true;
-      userName = "b4lisong";
-      userEmail = "b4lisong@pm.me";
-      aliases = {
-          ci = "commit";
-	  co = "checkout";
-	  s = "status";
-      };
-      extraConfig = {
-          # credential.helper = "${
-          #     pkgs.git.override { withLibsecret = true; }
-          # }/bin/git-credential-libsecret";
-	  push = { autoSetupRemote = true; }; 
-      };
-  };
-};
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
