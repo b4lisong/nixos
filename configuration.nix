@@ -48,6 +48,13 @@
         defaultSession = "none+i3";
     };
 
+    # Font configuration
+    fonts.packages = with pkgs; [
+        noto-fonts
+        liberation_ttf
+        nerdfonts
+    ];
+
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
