@@ -48,6 +48,10 @@
         defaultSession = "none+i3";
     };
 
+    # VM Guest Agent
+    services.spice-vdagentd.enable = true;
+    services.qemuGuest.enable = true;
+
     # Font configuration
     fonts.packages = with pkgs; [
         noto-fonts
