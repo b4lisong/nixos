@@ -162,6 +162,7 @@ users.users.balisong = {
       zsh
       starship
       git
+      ungoogled-chromium
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
