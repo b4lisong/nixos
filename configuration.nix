@@ -166,6 +166,15 @@ users.users.balisong = {
   #   enableSSHSupport = true;
   # };
 
+  # tmux
+  programs.tmux = {
+      enable = true;
+      terminal = "xterm-256color";
+      clock24 = true;
+      newSession = true;
+      historyLimit = 100000;
+  };
+
   # Zsh
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
