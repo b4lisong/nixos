@@ -161,6 +161,7 @@ users.users.balisong = {
             enable = true;
             shellIntegration.enableZshIntegration = true;
             shellIntegration.enableBashIntegration = true;
+            font.name = "SauceCodePro Nerd Font Mono";
         };
     };
 
