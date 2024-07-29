@@ -101,10 +101,16 @@ users.users.balisong = {
             syntaxHighlighting.enable = true;
 
             shellAliases = {
-	      ls = "ls --color=auto";
-              ll = "ls -alh";
-              update = "sudo nixos-rebuild switch";
-	      nixconfig = "sudo nvim /etc/nixos/configuration.nix";
+	            ls = "ls --color=auto";
+                ll = "ls -lh";
+                la = "ls -alh";
+                v = "nvim";
+                g = "git";
+                gs = "git status";
+                gc = "git commit";
+                gp = "git push";
+                update = "sudo nixos-rebuild switch";
+	            nixconfig = "sudo nvim /etc/nixos/configuration.nix";
             };
             history = {
               size = 10000;
