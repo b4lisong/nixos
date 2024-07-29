@@ -101,7 +101,9 @@ users.users.balisong = {
     home-manager.users.balisong = { pkgs, ... }: {
         home.packages = [ ];
         home.stateVersion = "24.05";
-
+        home.sessionVariables = {
+            EDITOR = "nvim";
+        };
 
         programs.zsh = {
             enable = true;
@@ -143,6 +145,11 @@ users.users.balisong = {
                 # }/bin/git-credential-libsecret";
 	        push = { autoSetupRemote = true; }; 
             };
+        };
+        
+        programs.neovim = {
+            vimdiffAlias = true;
+            package = pkgs.neovim-nightly;
         };
 
         xsession.windowManager.i3 = {
@@ -211,6 +218,7 @@ users.users.balisong = {
       defaultEditor = true;
       viAlias = true;
       vimAlias = true;
+      withNodeJs = true;
       configure = {
           customRC = ''
           """ Vim/Neovim config | ref: https://github.com/amix/vimrc/blob/master/vimrcs/basic.vim """
