@@ -20,6 +20,7 @@
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.hostName = "nixos-utm";
 
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
@@ -38,6 +39,14 @@
 
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
+    # Hardware options
+    hardware.opengl.enable = true;
+
+    # Don't require password for sudo
+    security.sudo.wheelNeedsPassword = false;
+
+    # Enable Docker
+    virtualisation.docker.enable = true;
 
     # Enable X11 and i3
     services.xserver = {
@@ -148,23 +157,32 @@ users.users.balisong = {
             };
         };
 
-        programs.wezterm = {
+        programs.kitty = {
             enable = true;
-            enableZshIntegration = true;
-            enableBashIntegration = true;
+            shellIntegration.enableZshIntegration = true;
+            shellIntegration.enableBashIntegration = true;
         };
     };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-      wget
-      zsh
-      starship
-      git
-      chromium
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+        wget
+        zsh
+        starship
+        git
+        chromium
+        kitty
 
+        # Force auto-resizing (needed for UTM guests)
+        (writeShellScriptBin "xrandr-auto" ''
+            xrandr --output Virtual-1 --auto
+        '')
+    ];
+    # For now, we need this since hw acceleration isn't working
+    variables.LIBGL_ALWAYS_SOFTWARE = "1";
+  };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
