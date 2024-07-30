@@ -161,6 +161,34 @@ users.users.balisong = {
                   inner = 10;
                   outer = 5;
                 };
+                keybindings = lib.mkOptionDefault {
+                    # Open kitty terminal
+                    "Mod1+Return" = "exec ${pkgs.kitty}/bin/kitty";
+
+                    ### Window movement and focus
+                    ## Window focus
+                    # Change focus, vim-style
+                    "Mod1+j" = "focus down";
+                    "Mod1+k" = "focus up";
+                    "Mod1+l" = "focus right";
+                    "Mod1+h" = "focus left";
+                    # Change focus via arrow keys
+                    "Mod1+Down" = "focus down";
+                    "Mod1+Up" = "focus up";
+                    "Mod1+Right" = "focus right";
+                    "Mod1+Left" = "focus left";
+                    ## Window movement
+                    # Move focused window, vim-style
+                    "Mod1+Shift+j" = "move down";
+                    "Mod1+Shift+k" = "move up";
+                    "Mod1+Shift+l" = "move right";
+                    "Mod1+Shift+h" = "move left";
+                    # Move focused window via arrow keys
+                    "Mod1+Shift+Down" = "move down";
+                    "Mod1+Shift+Up" = "move up";
+                    "Mod1+Shift+Right" = "move right";
+                    "Mod1+Shift+Left" = "move left";
+                };
             };
         };
 
