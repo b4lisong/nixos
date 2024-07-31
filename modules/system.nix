@@ -108,6 +108,7 @@ in {
     scrot
     xfce.thunar
     ranger
+    lazygit
   ];
 
   # nixvim
