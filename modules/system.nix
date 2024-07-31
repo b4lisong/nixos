@@ -113,6 +113,8 @@ in {
   # nixvim
   programs.nixvim = {
     enable = true;
+    # the best color scheme
+    colorschemes.catppuccin.enable = true;
     # Options inspired by https://github.com/amix/vimrc/blob/master/vimrcs/basic.vim
     # Set leader key
     globals.mapleader = ",";
