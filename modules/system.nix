@@ -79,6 +79,12 @@ in {
     };
   };
 
+  # Don't require password for sudo
+  security.sudo.wheelNeedsPassword = false;
+
+  # Enable Docker
+  virtualisation.docker.enable = true;
+
   # Enable dconf
   programs.dconf.enable = true;
 
