@@ -34,5 +34,15 @@ in {
     # shell aliases
     home.shellAliases = {
         ls = "ls --color=auto";
+        ll = "ls -lh";
+        la = "ls -alh";
+        vim = "nvim";
+        v = "nvim";
+        g = "git";
+        gs = "git status";
+        gc = "git commit";
+        gp = "git push";
+        lg = "lazygit";
+        uc = "sudo nixos-rebuild switch --flake " + c + "/nixos/#utm-aarch64";
     };
 }
