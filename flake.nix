@@ -18,6 +18,10 @@
             url = "github:catppuccin/bat";
             flake = false;
         };
+        nixvim = {
+            url = "github:nix-community/nixvim";
+	    inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
     outputs = inputs @ {
@@ -29,6 +33,7 @@
         nixosConfigurations = {
         # Modularize for different hosts
             utm-aarch64 = nixpkgs.lib.nixosSystem {
+		specialArgs = { inherit inputs; };
                 modules = [
                     # System-wide configurations (i.e. when also root)
                     ./hosts/utm-aarch64

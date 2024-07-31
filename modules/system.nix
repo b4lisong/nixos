@@ -1,10 +1,15 @@
 {
     pkgs,
     lib,
+    inputs,
     ...
 }: let
     username = "balisong";
 in {
+    imports = [
+        # <nixvim>.nixosModules.nixvim
+        inputs.nixvim.nixosModules.nixvim
+    ];
     # User related config
 
     # Define a user account (don't forget to set a password with `passwd`!)
@@ -104,6 +109,9 @@ in {
         xfce.thunar
         ranger
     ];
+
+    # nixvim
+    programs.nixvim.enable = true;
 
     # Enable polkit
     security.polkit.enable = true;
