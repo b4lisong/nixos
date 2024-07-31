@@ -109,6 +109,7 @@ in {
     xfce.thunar
     ranger
     lazygit
+    ripgrep
   ];
 
   # nixvim
